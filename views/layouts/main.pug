@@ -1,0 +1,21 @@
+html 
+    head 
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+        link(rel="stylesheet", href="/styles/custom.css" )
+    body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='#') Navbar
+        #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav
+            li.nav-item.active
+                a.nav-link(href='#') Home 
+            li.nav-item
+                a.nav-link(href='#') Features
+            li.nav-item
+                a.nav-link(href='#') Pricing
+    
+        if user
+            p= user.name
+
+    .container.pt-5
+        block content
