@@ -1,14 +1,15 @@
 require('dotenv').config();
 
-console.log( process.env.SESSION_SECRET );
+// console.log( process.env.SESSION_SECRET );
 
 const express       = require('express');
 const bodyParser    = require('body-parser');
 const cookieParser  = require('cookie-parser');
+const multer        = require('multer');
 
 const userRoutes    = require('./routes/user.route');
-const authRoues     = require('./routes/auth.route');
-
+const authRoutes     = require('./routes/auth.route');
+const productRoutes = require('./routes/product.route');
 
 const authMiddleware = require('./middlewares/auth.middleware');
 
@@ -23,7 +24,8 @@ app.use( cookieParser( process.env.SESSION_SECRET ) );
 app.use( express.static('public') );
 
 app.use( '/users', authMiddleware.requireAuth, userRoutes );
-app.use( '/auth', authRoues );
+app.use( '/auth', authRoutes );
+app.use( '/products', productRoutes );
 
 app.get( '/', function( request, response ) {
     // response.send('<h1> Test responsive </h1><a href="/users"> link </a>');

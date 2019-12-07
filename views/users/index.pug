@@ -8,10 +8,10 @@ block content
             input(type=text, name="q", class="form-control" )
             button(class="btn btn-primary ml-2") Search
     
-
     table.table
         thead
             tr
+                th ID
                 th Name
                 th Phone
                 th Action
@@ -19,6 +19,7 @@ block content
 
         each user in users
             tr
+                td= user.id
                 td= user.name
                 td= user.phone
                 td 

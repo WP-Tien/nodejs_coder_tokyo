@@ -10,8 +10,10 @@ module.exports.index = function( request, response ) {
 
 module.exports.search = function( request, response ) {
     var query = request.query.q;
+
     var matchedUsers = db.get('users').value().filter( function(user)  {
-        return db.get('users').value().name.toLowerCase().indexOf(query.toLowerCase()) !== -1; // indexOf trả về -1 khi ko tìm thấy
+        
+        return user.name.toLowerCase().indexOf(query.toLowerCase()) !== -1; // indexOf trả về -1 khi ko tìm thấy
     });
 
     response.render( 'users/index', { users: matchedUsers } );

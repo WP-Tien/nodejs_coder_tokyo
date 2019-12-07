@@ -24,12 +24,12 @@ router.get( '/', controller.index );
 //     response.send('Hello');
 // });
 
+router.get( '/search', controller.search );
+
 router.get( '/create', controller.create );
 
 router.get( '/:id', controller.userGet );
 
 router.post( '/create', validate.create, controller.userPost ); 
-
-router.get( '/search', controller.search );
 
 module.exports = router;
